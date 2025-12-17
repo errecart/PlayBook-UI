@@ -1,0 +1,52 @@
+.navBar{
+    margin-block: 15px;
+    margin-inline: var(--mar-lg);
+    padding: var(--pad-xs);
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    border-radius: var(--radius-200);
+    border: 2px solid var(--accent-100);
+    background-color: var(--bg-300);
+    box-shadow: 0 4px 14px rgba(178, 178, 178, 0.4);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navBar a svg{
+display: flex;
+flex-direction: column;
+}
+
+.navBar ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navBar ul li{
+    padding-inline: var(--pad-md);
+    font-weight: 700;
+    color: var(--text-100);
+    transition: color 0.3s ease-in-out;
+    &:hover{
+        color: var(--accent-100);
+    }   
+}
+
+.navBar ul li::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--accent-100);
+    transition: width .3s;
+}
+
+.navBar ul li:hover::after{
+    width: 100%;
+}

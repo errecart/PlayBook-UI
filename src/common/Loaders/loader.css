@@ -1,0 +1,22 @@
+.loader_container {
+   padding-block: var(--pad-xl);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+}
+
+.spinner {
+   width: 56px;
+   height: 56px;
+   border-radius: 50%;
+   border: 9px solid;
+   border-color: var(--accent-100) #0000;
+   animation: spinner 1s infinite;
+}
+
+@keyframes spinner {
+   to {
+      transform: rotate(.5turn);
+   }
+}

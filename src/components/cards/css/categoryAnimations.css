@@ -1,0 +1,112 @@
+/* BUTTONS */
+.flip-card.flipped .back .bolt {
+  animation-delay: 1s;
+  animation: bolt 1.4s ease-in-out;
+}
+@keyframes bolt {
+  0% {
+    transform: translateY(-300px);
+    opacity: 0;
+  }
+  25%{
+    opacity: .8;
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* CARDS */
+.flip-card.flipped .back .hand_card {
+  transform-origin: center;
+}
+
+.flip-card.flipped .back .hand_card path:nth-child(3) {
+  animation-delay: 1.8s;
+  animation: card_rotate 1s ease-in-out forwards;
+  transform-origin: center;
+}
+.flip-card.flipped .back .hand_card path:nth-child(4) {
+  animation-delay: 2.6s;
+  animation: card_rotate 1.4s ease-in-out forwards;
+  transform-origin: center;
+}
+
+@keyframes card_rotate {
+  0% {
+    transform: rotate(-120deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+/* CARDS */
+.flip-card.flipped .back .dropdown {
+  animation: dropwdown 1.4s ease-in-out forwards;
+}
+
+@keyframes dropwdown {
+  0% {
+    transform: translateY(-20px) scale(1.2);
+  }
+  50% {
+    transform: translateY(0px) scale(1);
+  }
+  75% {
+    transform: translateY(-10px) scale(1.2);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+/* LOADER */
+.flip-card.flipped .back .loader {
+  animation: loader 1.4s ease-in-out forwards;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Others */
+
+.flip-card.flipped .back .others path:nth-child(3) {
+  animation: others 0.8s ease-in-out forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+.flip-card.flipped .back .others path:nth-child(4) {
+  animation: others 0.8s ease-in-out forwards;
+  animation-delay: 0.8s;
+  opacity: 0;
+}
+.flip-card.flipped .back .others path:nth-child(5) {
+  animation: others 0.8s ease-in-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+@keyframes others {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+

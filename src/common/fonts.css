@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+h1{
+    font-size: 44px;
+    font-weight:bold;
+}
+
+h2{
+    font-size: 30px;
+    font-weight:bolder;
+}
+
+h3{
+    font-size: 22px;
+    font-weight:lighter
+}
+
+*{
+    font-family: 'Urbanist', sans-serif;
+}
+
+/* CODIGO */
+.codigo{
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    font-weight: normal;
+}

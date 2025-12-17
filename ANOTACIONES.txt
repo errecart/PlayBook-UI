@@ -1,0 +1,95 @@
+POSIBLES TIPOGRAFIAS - TITULOS:
+-Inter
+-Poppins
+-Outfit
+-Urbanist✅
+
+
+POSIBLES TIPOGRAFIAS - BLOQUES DE CODIGO:
+-JetBrains Mono✅
+-Fira Code
+-Cascadia Code
+
+
+TAMAÑO TIPOGRAFIAS ✅
+-H1: 42–48px / Bold
+-H2: 28–32px / Semibold
+-H3: 22px / Medium
+-Body: 16–18px / Regular
+-Código: 14–16px monoespaciada
+
+
+ESTRUCTURA -------------------------------------------------------------------------------
+
+
+ESTRUCTURA DE TAMAÑOS - ELEMENTOS ✅
+-XS: 4px
+-S: 8px
+-M: 16px
+-L: 24px
+-XL: 32px
+-XXL: 48px
+
+
+ESTRUCTURA DE TAMAÑOS - BORDES ✅
+-12px
+-16px
+-incluso 20px en cards importantes
+
+
+ESTRUCTURA - CARDS-SOBREADOS ✅
+box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+
+
+ESTRUCTURA - ANIMACION-CARDS ✅
+-Aumento leve de brillo
+-Borde de color activo
+-Animación sutil de escala
+
+
+ESTRUCTURA DE TAMAÑOS - PLUS-ELEMENTOS ✅
+-botón → ⚡
+-dropdown → ˅
+-lista → ≡
+-loader → ⟳
+
+COMPONENTE NAVBAR -------------------------------------------------------------------------------
+
+NAVBAR - REDISEÑAR ➖
+AGREGAR MARCA PERSONAL?????
+
+COMPONENTE DETALLES -------------------------------------------------------------------------------
+
+
+DETALLES - LAYOUT ➖
+-Chakra UI
+-Material UI
+-Tailwind UI
+
+
+→ TABS MODERNOS ✅
+Bordes redondeados + indicator line
+(Estética estilo GitHub, Vercel, etc.)
+
+→ RESALTADOS DE CODIGO
+Usa Prism.js o Highlight.js.
+Sube la calidad un 100%.
+
+COMPONENTE FORMULARIO -------------------------------------------------------------------------------
+
+-Input con borde gris → highlight magenta SOLO al focus. ✅
+-Sombra suave.
+-Labels más pequeñas y grises.
+-Contenedores más redondeados.
+
+
+
+
+COSAS A AGREGAR -------------------------------------------------------------------------------
+
+-En las cards de categorias en HomePage quiero q al ahacer hover en la card cada svg tenga una animacion diferente ✅
+
+-Que la seccion de filtros y categorias se maneje por ruta ❌
+
+-Hacer q el demo de details siempre se vea al completo sin importar el tamaño
+

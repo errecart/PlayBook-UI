@@ -1,0 +1,59 @@
+.playBook_page {
+  display: flex;
+  align-items: flex-start;
+}
+
+.filter {
+  flex: 1 1 20%;
+  max-width: 50%;
+  min-width: 0;
+}
+
+.playBook_container {
+  flex: 1 1 80%;
+  max-width: 80%;
+  min-width: 0;
+  display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  align-items: start;
+  width: 100%;
+}
+
+.playBook_container .loader {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* @media (max-width: 1200px) {
+  .playBook_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .playBook_container {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 600px) {
+  .playBook_container {
+    grid-template-columns: 1fr; 
+  }
+} */
+
+.no_items{
+  color: var(--accent-100);
+  background-color: var(--bg-300);
+  border: 2px solid var(--accent-100);
+  padding-block: var(--pad-lg);
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
