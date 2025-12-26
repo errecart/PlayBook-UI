@@ -115,10 +115,10 @@ useEffect(() => {
           <div className="author">
             <section>
               <p>Author:</p>
-              <h4>{element.autor?.nombreautor}</h4>
+              <h4>{element.autor[0].nombre}</h4>
             </section>
             <section>
-              <a href={element.autor?.linkedin} target="_blanck">
+              <a href={element.autor[0].linkedin} target="_blanck">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -139,7 +139,7 @@ useEffect(() => {
                   <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
                 </svg>
               </a>
-              <a href={element.autor?.portfolio} target="_blanck">
+              <a href={element.autor[0].portfolio} target="_blanck">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"

@@ -55,7 +55,7 @@
     margin: var(--mar-md) 0;
     padding: var(--pad-md) 0;
     width: 100%;
-    height: 150px;
+    height: auto;
     h3 {
       margin-bottom: var(--mar-xs);
     }
@@ -131,16 +131,21 @@
     height: 650px;
     min-height: 300px;
     padding: var(--pad-md);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 
     svg {
-      position: absolute;
-      right: var(--pad-sm);
-      bottom: var(--pad-sm);
+      position: sticky;
+      align-self: flex-end;
+      bottom: 0;
+      right: 0;
       padding: var(--pad-xs);
       border-radius: var(--radius-100);
       border: 2px solid var(--text-100);
       stroke: var(--accent-100);
       transition: all 200ms ease-in-out;
+      flex-shrink: 0;
 
       &:hover {
         background-color: var(--accent-100);

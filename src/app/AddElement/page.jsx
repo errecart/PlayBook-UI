@@ -61,11 +61,11 @@ const AddElement = () => {
         style: styleSelector,
         createdAt: serverTimestamp(),
       });
-      setMessage({ status: 200, text: "Elemento agregado. ID: " + docRef.id });
+      setMessage({ status: 200, text: "Element add: " + docRef.nombre });
       resetForm();
     } catch (err) {
       console.error(err);
-      setMessage({ status: 400, text: "Error al guardar: " + (err.message || err) });
+      setMessage({ status: 400, text: "Error adding element: " + (err.message || err) });
     } finally {
       setLoading(false);
     }
@@ -89,6 +89,7 @@ const AddElement = () => {
             </li>
             <li>Avoid uploading anything that might offend others.</li>
             <li>Any unsuitable content will be removed.</li>
+            <li>Remeber that the base of HTML is vanilla</li>
           </ol>
         </section>
         <form onSubmit={handleSubmit} className="container addElement_form">
@@ -107,8 +108,8 @@ const AddElement = () => {
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
               required
-              minLength={75}
-              maxLength={100}
+              minLength={100}
+              maxLength={150}
             />
           </section>
 
@@ -152,12 +153,9 @@ const AddElement = () => {
               <option value="">-- Select --</option>
               <option value="Buttons">Buttons</option>
               <option value="Dropdowns">Dropdowns</option>
-              <option value="Modal">Modal</option>
               <option value="Cards">Cards</option>
-              <option value="List">List</option>
               <option value="Loaders">Loaders</option>
-              <option value="Title">Title</option>
-              <option value="Other">Other</option>
+              <option value="Others">Others</option>
             </select>
           </section>
 
@@ -203,7 +201,7 @@ const AddElement = () => {
             </section>
 
             <section>
-              <label>CSS (code)</label>
+              <label>CSS {styleSelector === "css" && "*"}</label>
               <textarea
                 value={codigoCSS}
                 onChange={(e) => setCodigoCSS(e.target.value)}
@@ -211,6 +209,7 @@ const AddElement = () => {
                 placeholder={
                   styleSelector === "tailwind" ? "Tailwind Applied" : ""
                 }
+                required={styleSelector === "css"}
               />
             </section>
           </div>

@@ -9,15 +9,16 @@ const Messages = ({ message, onClose }) => {
     position: 'fixed',
     right: 20,
     top: 20,
-    padding: '12px 1  6px',
+    padding: '12px 16px',
     borderRadius: 6,
     display: 'flex',
     gap: 8,
     alignItems: 'center',
     boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-    zIndex: 9999,
+    zIndex: 100,
     maxWidth: '80vw',
     wordBreak: 'break-word',
+    paddingInline: 16,
   }
 
   let variant = {}
@@ -30,15 +31,15 @@ const Messages = ({ message, onClose }) => {
   }
 
   useEffect(() => {
-    const t = setTimeout(() => onClose && onClose(), 5000)
+    const t = setTimeout(() => onClose?.(), 5000)
     return () => clearTimeout(t)
-  }, [message, onClose])
+  }, [onClose])
 
   return (
     <div style={{ ...base, ...variant }} role="status" aria-live="polite">
       <div style={{ flex: 1 }}>{text}</div>
       <button
-        onClick={() => onClose && onClose()}
+        onClick={() => onClose?.()}
         style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: 'inherit', fontWeight: 700 }}
         aria-label="Cerrar mensaje"
       >

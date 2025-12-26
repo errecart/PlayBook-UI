@@ -1,0 +1,18 @@
+.footer {
+  color: var(--text-100);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-inline: var(--pad-lg);
+
+  .footer_links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    svg {
+      cursor: pointer;
+    }
+  }
+}
