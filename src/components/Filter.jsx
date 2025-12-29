@@ -6,7 +6,6 @@ export const Filter = ({ activeFilters, onToggle, onRemove, onClearAll }) => {
   const styleOptions = ["CSS", "Tailwind"];
   const categoriaOptions = [
     "Buttons",
-    "Modal",
     "Cards",
     "Loaders",
     "Dropdown",

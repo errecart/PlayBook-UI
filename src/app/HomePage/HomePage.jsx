@@ -46,9 +46,9 @@ const HomePage = () => {
           Welcome to <i>PlayBook UI</i>
         </h1>
         <p>
-          Quando ambulabat agendis admonere te qualis actio. Si ad corpus, quae
-          plerumque Imaginare tecum in balineo quidam aquam fundes aliquod
-          discrimen vituperiis usum alii furantur.
+          Welcome to my latest project, PlayBook UI. From here you can use
+          programming elements for your own projects and add elements for the
+          community to use
         </p>
         <button>
           <Link href="/PlayBook">Get Started</Link>
@@ -65,17 +65,18 @@ const HomePage = () => {
         <div>
           <h3>Why to use it</h3>
           <p>
-            Quando ambulabat agendis admonere te qualis actio. Si ad corpus,
-            quae plerumque Imaginare tecum in balineo quidam aquam fundes
-            aliquod discrimen vituperiis usum alii furantur.
+            Welcome to my latest project, PlayBook UI. From here, you can use
+            programming elements for your own projects and add elements for the
+            community to use. Content creators will always be recognized as the
+            authors of their own work.
           </p>
         </div>
         <div>
           <h3>Always in updates</h3>
           <p>
-            Quando ambulabat agendis admonere te qualis actio. Si ad corpus,
-            quae plerumque Imaginare tecum in balineo quidam aquam fundes
-            aliquod discrimen vituperiis usum alii furantur.
+            This component is continuously updated to follow modern UI patterns
+            and best practices. Improvements and refinements are added
+            regularly.
           </p>
         </div>
       </section>
