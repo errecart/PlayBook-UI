@@ -82,10 +82,31 @@ useEffect(() => {
   const previewContent = `
       <html>
         <head>
-          <style>${cssCode}</style>
-          
+          <script src="https://cdn.tailwindcss.com"></script>
+          <style>
+            * {
+              box-sizing: border-box;
+            }
+
+            body {
+              height: 100%;
+              display: grid;
+              align-content: center;
+              place-items: center;
+              overflow: hidden;
+              margin-top:20px !important;
+            }
+
+            .preview-scale {
+              transform: scale(0.85);
+              transform-origin: center;
+              max-width: 100%;
+              max-height: 100%;
+            }
+          </style>
+          ${cssCode ? `<style>${cssCode}</style>` : ''}
         </head>
-        <body style="height:80dvh; overflow:none;display:flex;justify-content:center;align-items:center;">
+        <body>
             ${htmlCode}
         </body>
       </html>

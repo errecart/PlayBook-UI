@@ -8,7 +8,8 @@ const Cards = ({ items, onCardClick }) => {
         const previewContent = `
           <html>
             <head>
-                <style>
+              <script src="https://cdn.tailwindcss.com"></script>
+              <style>
       * {
         box-sizing: border-box;
       }
@@ -28,7 +29,7 @@ const Cards = ({ items, onCardClick }) => {
         max-height: 100%;
       }
     </style>
-              <style>${i.codigoCSS || ""}</style>
+              ${i.codigoCSS ? `<style>${i.codigoCSS}</style>` : ''}
             </head>
             <body style="height:100px;overflow:hidden;display:flex;justify-content:center;align-items:center;" class="preview-scale">
               ${i.codigoHTML || ""}
