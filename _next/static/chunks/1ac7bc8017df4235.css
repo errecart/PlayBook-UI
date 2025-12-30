@@ -1,0 +1,1 @@
+.loader_container{padding-block:var(--pad-xl);justify-content:center;align-items:center;height:100%;display:flex}.spinner{border:9px solid;border-color:var(--accent-100)transparent;border-radius:50%;width:56px;height:56px;animation:1s infinite spinner}@keyframes spinner{to{transform:rotate(.5turn)}}
