@@ -1,13 +1,13 @@
 import { Suspense } from "react";
 import Loader from "@/common/Loaders/Loader";
-import PlayBookClient from "./PlayBookClient";
+import ElementClient from "./ElementClient";
 
-const PlayBook = () => {
+const Page = () => {
   return (
     <Suspense fallback={<Loader />}>
-      <PlayBookClient />
+      <ElementClient />
     </Suspense>
   );
-};
+}
 
-export default PlayBook;
+export default Page;

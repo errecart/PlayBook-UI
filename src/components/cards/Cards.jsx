@@ -1,14 +1,21 @@
 import React from "react";
 import "./css/cards.css";
+import { useRouter } from "next/navigation";
 
-const Cards = ({ items, onCardClick }) => {
+const Cards = ({ items }) => {
+  const router = useRouter();
+
   return (
     <>
       {items.map((i) => {
+        const usesTailwind = /class=["'][^"']*(flex|grid|bg-|text-|p-|m-)/.test(
+          i.codigoHTML || ""
+        );
         const previewContent = `
           <html>
             <head>
-              <script src="https://cdn.tailwindcss.com"></script>
+            ${usesTailwind ? `<script src="https://cdn.tailwindcss.com"></script>` : ""}
+
               <style>
       * {
         box-sizing: border-box;
@@ -29,7 +36,7 @@ const Cards = ({ items, onCardClick }) => {
         max-height: 100%;
       }
     </style>
-              ${i.codigoCSS ? `<style>${i.codigoCSS}</style>` : ''}
+              ${i.codigoCSS ? `<style>${i.codigoCSS}</style>` : ""}
             </head>
             <body style="height:100px;overflow:hidden;display:flex;justify-content:center;align-items:center;" class="preview-scale">
               ${i.codigoHTML || ""}
@@ -57,7 +64,7 @@ const Cards = ({ items, onCardClick }) => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="icon icon-tabler icons-tabler-outline icon-tabler-arrow-bar-to-right"
-                onClick={() => onCardClick(i.id)}
+                onClick={() => router.push(`/element?id=${i.id}`)}
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M14 12l-10 0" />
