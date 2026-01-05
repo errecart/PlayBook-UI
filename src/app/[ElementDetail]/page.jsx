@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../../../firebase/firebase.config";
 
@@ -14,16 +14,19 @@ import Loader from "@/common/Loaders/Loader";
 import NavBar from "@/components/NavBar";
 import hljs from "highlight.js";
 
-const ElementClient = () => {
-  const searchParams = useSearchParams();
-  const id = searchParams.get("id");
 
+
+const page = () => {
+  const params = useParams();
+  const id = params.ElementDetail;
 
   const [element, setElement] = useState(null);
   const [view, setView] = useState("html");
   const [loading, setLoading] = useState(true);
   const [htmlCode, setHtmlCode] = useState("");
   const [cssCode, setCssCode] = useState("");
+
+
 
   // FETCH ELEMENT DATA
   useEffect(() => {
@@ -35,18 +38,17 @@ const ElementClient = () => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          const data = docSnap.data();
-          setElement({ id: docSnap.id, ...data });
-          setHtmlCode(data.codigoHTML || "");
-          setCssCode(data.codigoCSS || "");
+          setElement({ id: docSnap.id, ...docSnap.data() });
+        } else {
+          setElement(null);
         }
       } catch (err) {
-        console.error(err);
+        console.error("Error fetching element:", err);
+        setElement(null);
       } finally {
         setLoading(false);
       }
     };
-
     fetchElement();
   }, [id]);
 
@@ -112,7 +114,6 @@ useEffect(() => {
 
   if (loading) return <Loader />;
   if (!element) return <div>No se encontró el elemento</div>;
-
   return (
     <>
       <NavBar />
@@ -268,6 +269,6 @@ useEffect(() => {
       </div>
     </>
   );
-}
+};
 
-export default ElementClient
+export default page;

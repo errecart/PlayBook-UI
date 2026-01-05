@@ -2,7 +2,7 @@ import React from "react";
 import "./css/cards.css";
 import { useRouter } from "next/navigation";
 
-const Cards = ({ items }) => {
+const Cards = ({ items, onCardClick }) => {
   const router = useRouter();
 
   return (
@@ -64,7 +64,7 @@ const Cards = ({ items }) => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="icon icon-tabler icons-tabler-outline icon-tabler-arrow-bar-to-right"
-                onClick={() => router.push(`/element?id=${i.id}`)}
+                onClick={() => onCardClick(i.id)}
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M14 12l-10 0" />

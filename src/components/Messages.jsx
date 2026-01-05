@@ -1,8 +1,20 @@
 "use client";
 import React, { useEffect, useCallback } from 'react'  
 
-const Messages = ({ message, onClose }) => {
+function Messages({ message, onClose }) {
+  const handleClose = useCallback(() => {
+    onClose?.()
+  }, [onClose])
+
+  useEffect(() => {
+    if (!message) return
+    
+    const t = setTimeout(() => handleClose(), 5000)
+    return () => clearTimeout(t)
+  }, [message, handleClose])
+
   if (!message) return null
+
   const { status, text } = message
 
   const base = {
@@ -29,15 +41,6 @@ const Messages = ({ message, onClose }) => {
   } else {
     variant = { background: 'var(--bg-300)', color: 'var(--warning)', border: '1px solid var(--warning)' }
   }
-
-  const handleClose = useCallback(() => {
-    onClose?.()
-  }, [onClose])
-
-  useEffect(() => {
-    const t = setTimeout(() => handleClose(), 5000)
-    return () => clearTimeout(t)
-  }, [handleClose])
 
   return (
     <div style={{ ...base, ...variant }} role="status" aria-live="polite">

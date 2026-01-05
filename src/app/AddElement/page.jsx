@@ -61,7 +61,7 @@ const AddElement = () => {
         style: styleSelector,
         createdAt: serverTimestamp(),
       });
-      setMessage({ status: 200, text: "Element add: " + docRef.nombre });
+      setMessage({ status: 200, text: "Element add: " + docRef.id });
       resetForm();
     } catch (err) {
       console.error(err);
