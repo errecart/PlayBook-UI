@@ -153,7 +153,7 @@ export default function PlayBookClient() {
             <article className="playBook_container">
                 <Cards
                   items={filteredItems}
-                  onCardClick={(id) => router.push(`/element?id=${id}`)}
+                  onCardClick={(id) => router.push(`/${encodeURIComponent(id)}`)}
                 />
             </article>
         )}

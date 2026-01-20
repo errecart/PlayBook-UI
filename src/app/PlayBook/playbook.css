@@ -13,14 +13,10 @@
   flex: 1 1 80%;
   max-width: 100%;
   min-width: 0;
-  /* display: grid;
+  display: grid;
   grid-template-columns: repeat(auto-fit, 250px);  
   gap: 1rem;
-  align-items: start; */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  align-items: start;
   width: 100%;
 }
 
