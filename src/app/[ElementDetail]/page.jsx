@@ -82,6 +82,7 @@ useEffect(() => {
   const previewContent = `
       <html>
         <head>
+          <script src="https://cdn.tailwindcss.com"></script>
           <style>
             * {
               box-sizing: border-box;
@@ -137,7 +138,7 @@ useEffect(() => {
               <p>Author:</p>
               <h4>{element.autor[0].nombre}</h4>
             </section>
-            <section>
+            <section style={{display:"flex"}}>
               <a href={element.autor[0].linkedin} target="_blanck">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

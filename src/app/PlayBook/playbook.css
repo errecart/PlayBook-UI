@@ -11,12 +11,16 @@
 
 .playBook_container {
   flex: 1 1 80%;
-  max-width: 80%;
+  max-width: 100%;
   min-width: 0;
-  display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* display: grid;
+  grid-template-columns: repeat(auto-fit, 250px);  
   gap: 1rem;
-  align-items: start;
+  align-items: start; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 

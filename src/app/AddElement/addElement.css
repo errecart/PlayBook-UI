@@ -72,6 +72,7 @@
     flex-direction: column;
     width: 60%;
     padding: var(--pad-md);
+    border: 1px solid var(--text-100);
     legend {
       padding-inline: var(--pad-xs);
     }
@@ -102,10 +103,7 @@
         margin-left: 0;
         width: 400px;
     }
-    .addElement_form  input, 
-    .addElement_form  textarea,
-    .addElement_form  select,
-    .addElement_form fieldset {
-        width: 100%;
+    input, textarea, select, fieldset {
+        width: 100% !important;
     }
 }

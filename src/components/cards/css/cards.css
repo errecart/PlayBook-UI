@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  /* aspect-ratio: 16 / 9; */
   min-height: 200px;   
   border-radius: var(--radius-100);
   border: 2px solid var(--text-100);
