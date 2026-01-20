@@ -28,30 +28,13 @@
 }
 
 
-/* @media (max-width: 1200px) {
-  .playBook_container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .playBook_container {
-    grid-template-columns: repeat(2, 1fr); 
-  }
-}
-
-@media (max-width: 600px) {
-  .playBook_container {
-    grid-template-columns: 1fr; 
-  }
-} */
 
 .no_items{
   color: var(--accent-100);
   background-color: var(--bg-300);
   border: 2px solid var(--accent-100);
   padding-block: var(--pad-lg);
-  grid-column: 1 / -1;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -14,7 +14,6 @@ const Cards = ({ items, onCardClick }) => {
         const previewContent = `
           <html>
             <head>
-            ${usesTailwind ? `<script src="https://cdn.tailwindcss.com"></script>` : ""}
 
               <style>
       * {

@@ -82,7 +82,6 @@ useEffect(() => {
   const previewContent = `
       <html>
         <head>
-          <script src="https://cdn.tailwindcss.com"></script>
           <style>
             * {
               box-sizing: border-box;
