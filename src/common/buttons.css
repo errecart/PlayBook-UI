@@ -5,7 +5,6 @@ button{
     background-color: var(--bg-200);
     color: var(--text-100);
 
-    border-radius: var(--radius-200);
     border: 2px solid var(--primary-200);
     font-weight: 600;
 
@@ -27,5 +26,22 @@ button:hover{
     }
     100%{
         transform: translateY(5%);
+    }
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--accent-100);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
     }
 }

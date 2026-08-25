@@ -79,41 +79,21 @@ useEffect(() => {
 
 
 
-  const previewContent = `
-      <html>
-        <head>
-          <script src="https://cdn.tailwindcss.com"></script>
-          <style>
-            * {
-              box-sizing: border-box;
-            }
-
-            body {
-              height: 100%;
-              display: grid;
-              align-content: center;
-              place-items: center;
-              overflow: hidden;
-              margin-top:20px !important;
-            }
-
-            .preview-scale {
-              transform: scale(0.85);
-              transform-origin: center;
-              max-width: 100%;
-              max-height: 100%;
-            }
-          </style>
-          ${cssCode ? `<style>${cssCode}</style>` : ''}
-        </head>
-        <body>
-            ${htmlCode}
-        </body>
-      </html>
-    `;
+  const previewContent = `<!doctype html>
+    <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        ${element?.style === "tailwind" ? '<script src="https://cdn.tailwindcss.com"></script>' : ""}
+        <style>* { box-sizing: border-box; }</style>
+        ${cssCode ? `<style>${cssCode}</style>` : ""}
+      </head>
+      <body style="margin:0;height:300px;display:flex;align-items:center;justify-content:center;overflow:auto;padding:24px;">
+        ${htmlCode}
+      </body>
+    </html>`;
 
   if (loading) return <Loader />;
-  if (!element) return <div>No se encontró el elemento</div>;
+  if (!element) return <div role="alert">No se encontró el elemento</div>;
   return (
     <>
       <NavBar />
@@ -136,10 +116,10 @@ useEffect(() => {
           <div className="author">
             <section>
               <p>Author:</p>
-              <h4>{element.autor[0].nombre}</h4>
+              <h4>{element.autor?.[0]?.nombre || "Unknown author"}</h4>
             </section>
             <section style={{display:"flex"}}>
-              <a href={element.autor[0].linkedin} target="_blanck">
+              <a href={element.autor?.[0]?.linkedin} target="_blank" rel="noopener noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -160,7 +140,7 @@ useEffect(() => {
                   <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
                 </svg>
               </a>
-              <a href={element.autor[0].portfolio} target="_blanck">
+              <a href={element.autor?.[0]?.portfolio} target="_blank" rel="noopener noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="32"
@@ -190,23 +170,24 @@ useEffect(() => {
         </section>
         <section className="element_right">
           <section className="section_title">
-            <span
+              <button
+                type="button"
               className={view === "html" ? "active" : ""}
               onClick={() => setView("html")}
-              style={{ cursor: "pointer" }}
+                aria-selected={view === "html"}
             >
               HTML
-            </span>
-            <span
+            </button>
+            <button
+              type="button"
               className={view === "css" ? "active" : ""}
               onClick={() => setView("css")}
-              style={{
-                cursor: element.codigoCSS ? "pointer" : "default",
-                display: element.codigoCSS ? "block" : "none",
-              }}
+                aria-selected={view === "css"}
+                disabled={!element.codigoCSS}
             >
               {element.codigoCSS ? "CSS" : ""}
-            </span>{" "}
+              CSS
+            </button>
           </section>
           {view === "html" ? (
             <div
@@ -218,7 +199,8 @@ useEffect(() => {
                   {htmlCode}
                 </code>
               </pre>
-              <svg
+              <button type="button" className="copy_code" aria-label="Copy HTML code" onClick={() => navigator.clipboard.writeText(htmlCode)}>
+                <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
                 height="32"
@@ -229,12 +211,13 @@ useEffect(() => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="icon icon-tabler icons-tabler-outline icon-tabler-copy"
-                onClick={() => navigator.clipboard.writeText(htmlCode)}
-              >
+                  aria-hidden="true"
+                >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
                 <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
-              </svg>
+                </svg>
+              </button>
             </div>
           ) : (
             <div
@@ -246,7 +229,8 @@ useEffect(() => {
                   {cssCode}
                 </code>
               </pre>
-              <svg
+              <button type="button" className="copy_code" aria-label="Copy CSS code" onClick={() => navigator.clipboard.writeText(cssCode)}>
+                <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
                 height="32"
@@ -257,12 +241,13 @@ useEffect(() => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="icon icon-tabler icons-tabler-outline icon-tabler-copy"
-                onClick={() => navigator.clipboard.writeText(cssCode)}
-              >
+                  aria-hidden="true"
+                >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M7 7m0 2.667a2.667 2.667 0 0 1 2.667 -2.667h8.666a2.667 2.667 0 0 1 2.667 2.667v8.666a2.667 2.667 0 0 1 -2.667 2.667h-8.666a2.667 2.667 0 0 1 -2.667 -2.667z" />
                 <path d="M4.012 16.737a2.005 2.005 0 0 1 -1.012 -1.737v-10c0 -1.1 .9 -2 2 -2h10c.75 0 1.158 .385 1.5 1" />
-              </svg>
+                </svg>
+              </button>
             </div>
           )}
         </section>

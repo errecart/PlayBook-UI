@@ -19,6 +19,7 @@ import { Filter } from "@/components/Filter";
 export default function PlayBookClient() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [activeFilters, setActiveFilters] = useState({
     animacion: new Set(),
     style: new Set(),
@@ -43,6 +44,7 @@ export default function PlayBookClient() {
   useEffect(() => {
     const fetchItems = async () => {
       setLoading(true);
+      setError(false);
       try {
         const q = collection(db, "Elementos");
         const snapshot = await getDocs(q);
@@ -53,6 +55,7 @@ export default function PlayBookClient() {
         setItems(data);
       } catch (err) {
         console.error("Error fetching items:", err);
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -147,6 +150,8 @@ export default function PlayBookClient() {
 
         {loading ? (
           <Loader />
+        ) : error ? (
+          <p role="alert" className="no_items">Unable to load elements. Please try again.</p>
         ) : filteredItems.length === 0 ? (
           <p className="no_items">No elements available.</p>
         ) : (

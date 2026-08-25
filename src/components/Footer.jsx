@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer_links">
-        <a href="www.linkedin.com/in/juan-ignacio-errecart" target="_blank">        
+        <a href="https://www.linkedin.com/in/juan-ignacio-errecart" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -26,7 +26,7 @@ const Footer = () => {
           <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z" />
         </svg>
         </a>
-        <a href="https://github.com/errecart" target="_blank">        
+        <a href="https://github.com/errecart" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

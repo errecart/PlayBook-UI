@@ -82,7 +82,8 @@
       flex-wrap: wrap;
     }
     input {
-      width: 450px;
+      width: 100%;
+      max-width: 450px;
       margin-right: var(--mar-lg);
     }
   }
@@ -101,7 +102,7 @@
 @media (max-width:768px){
     .addElement_form fieldset input {
         margin-left: 0;
-        width: 400px;
+        width: 100%;
     }
     input, textarea, select, fieldset {
         width: 100% !important;

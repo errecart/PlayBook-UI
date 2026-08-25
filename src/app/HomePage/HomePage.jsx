@@ -15,10 +15,12 @@ import "./HomePage.css";
 const HomePage = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const router = useRouter();
 
   const fetchItems = async () => {
     setLoading(true);
+    setError(false);
     try {
       let q = collection(db, "Elementos");
       const view = await getDocs(q);
@@ -26,6 +28,7 @@ const HomePage = () => {
       setItems(data);
     } catch (error) {
       console.error("Error fetching items:", error);
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -50,7 +53,7 @@ const HomePage = () => {
           programming elements for your own projects and add elements for the
           community to use
         </p>
-        <button>
+        <button style={{borderRadius: "var(--radius-200)"}}>
           <Link href="/PlayBook">Get Started</Link>
         </button>
       </section>
@@ -86,6 +89,8 @@ const HomePage = () => {
           <div className="loader">
             <Loader />
           </div>
+        ) : error ? (
+          <p role="alert" className="no_items">Unable to load elements. Please try again.</p>
         ) : (
           <div className="element_preview container">
             <Cards

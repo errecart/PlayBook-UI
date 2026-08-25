@@ -1,10 +1,7 @@
 import React from "react";
 import "./css/cards.css";
-import { useRouter } from "next/navigation";
 
 const Cards = ({ items, onCardClick }) => {
-  const router = useRouter();
-
   return (
     <>
       {items.map((i) => {
@@ -44,11 +41,25 @@ const Cards = ({ items, onCardClick }) => {
           </html>
         `;
         return (
-          <div key={i.id} className="card">
+          <div
+            key={i.id}
+            className="card"
+            role="button"
+            tabIndex={0}
+            aria-label={`Open ${i.nombre}`}
+            onClick={() => onCardClick(i.id)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                onCardClick(i.id);
+              }
+            }}
+          >
             <iframe
               className="card_preview"
               title={`preview-${i.id}`}
               srcDoc={previewContent}
+              sandbox="allow-scripts"
               aria-label={`open-${i.id}`}
             />
             <div className="card_overlay">
@@ -64,7 +75,7 @@ const Cards = ({ items, onCardClick }) => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="icon icon-tabler icons-tabler-outline icon-tabler-arrow-bar-to-right"
-                onClick={() => onCardClick(i.id)}
+                aria-hidden="true"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M14 12l-10 0" />

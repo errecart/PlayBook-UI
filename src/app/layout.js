@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Playbook UI",
-  description: "Generated App for Playbook UI",
+  description: "A community library of reusable HTML, CSS and Tailwind UI elements.",
   icons: {
     icon: '/icons/logo.svg',
   },

@@ -9,6 +9,12 @@
   /* aspect-ratio: 16 / 9; */
 }
 
+.card:focus-visible,
+.flip-card:focus-visible {
+  outline: 3px solid var(--accent-100);
+  outline-offset: 3px;
+}
+
 .card_preview {
   position: absolute;
   inset: 0;

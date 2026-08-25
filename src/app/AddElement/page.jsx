@@ -10,6 +10,11 @@ import "@/common/fonts.css";
 import "@/common/spacing.css";
 import "@/common/buttons.css";
 import "@/common/radius.css";
+import {
+  animationOptions,
+  elementCategories,
+  styleOptions,
+} from "@/common/elementOptions";
 import "./addElement.css";
 
 const AddElement = () => {
@@ -94,8 +99,9 @@ const AddElement = () => {
         </section>
         <form onSubmit={handleSubmit} className="container addElement_form">
           <section>
-            <label>Name *</label>
+            <label htmlFor="name">Name *</label>
             <input
+              id="name"
               value={nombre}
               onChange={(e) => setNombre(e.target.value)}
               required
@@ -103,8 +109,9 @@ const AddElement = () => {
           </section>
 
           <section>
-            <label>Descripción *</label>
+            <label htmlFor="description">Descripción *</label>
             <textarea
+              id="description"
               value={descripcion}
               onChange={(e) => setDescripcion(e.target.value)}
               required
@@ -116,16 +123,18 @@ const AddElement = () => {
           <fieldset className="author">
             <legend>Author *</legend>
             <div>
-              <label>Name *</label>
+              <label htmlFor="author-name">Name *</label>
               <input
+                id="author-name"
                 value={autorNombre}
                 onChange={(e) => setAutorNombre(e.target.value)}
                 required
               />
             </div>
             <div>
-              <label>LinkedIn *</label>
+              <label htmlFor="author-linkedin">LinkedIn *</label>
               <input
+                id="author-linkedin"
                 type="text"
                 value={autorLinkedin}
                 onChange={(e) => setAutorLinkedin(e.target.value)}
@@ -133,8 +142,9 @@ const AddElement = () => {
               />
             </div>
             <div>
-              <label>Portfolio *</label>
+              <label htmlFor="author-portfolio">Portfolio *</label>
               <input
+                id="author-portfolio"
                 type="text"
                 value={autorPortfolio}
                 onChange={(e) => setAutorPortfolio(e.target.value)}
@@ -144,37 +154,39 @@ const AddElement = () => {
           </fieldset>
 
           <section>
-            <label>Category *</label>
+            <label htmlFor="category">Category *</label>
             <select
+              id="category"
               value={categoria}
               onChange={(e) => setCategoria(e.target.value)}
               required
             >
               <option value="">-- Select --</option>
-              <option value="Buttons">Buttons</option>
-              <option value="Dropdowns">Dropdowns</option>
-              <option value="Cards">Cards</option>
-              <option value="Loaders">Loaders</option>
-              <option value="Others">Others</option>
+              {elementCategories.map((option) => (
+                <option key={option.value} value={option.value}>{option.label}</option>
+              ))}
             </select>
           </section>
 
           <section>
-            <label>Animation *</label>
+            <label htmlFor="animation">Animation *</label>
             <select
+              id="animation"
               value={animacion}
               onChange={(e) => setAnimacion(e.target.value)}
               required
             >
               <option value="">-- Select --</option>
-              <option value="animacion">Animation</option>
-              <option value="no-animacion">No-Animation</option>
+              {animationOptions.map((option) => (
+                <option key={option.value} value={option.value}>{option.label}</option>
+              ))}
             </select>
           </section>
 
           <section>
-            <label>Style(CSS) *</label>
+            <label htmlFor="style">Style(CSS) *</label>
             <select
+              id="style"
               value={styleSelector}
               onChange={(e) => {
                 const val = e.target.value;
@@ -186,23 +198,26 @@ const AddElement = () => {
               required
             >
               <option value="">-- Select --</option>
-              <option value="css">CSS</option>
-              <option value="tailwind">Tailwind</option>
+              {styleOptions.map((option) => (
+                <option key={option.value} value={option.value}>{option.label}</option>
+              ))}
             </select>
           </section>
 
           <div className="code">
             <section>
-              <label>HTML *</label>
+              <label htmlFor="html-code">HTML *</label>
               <textarea
+                id="html-code"
                 value={codigoHTML}
                 onChange={(e) => setCodigoHTML(e.target.value)}
               />
             </section>
 
             <section>
-              <label>CSS {styleSelector === "css" && "*"}</label>
+              <label htmlFor="css-code">CSS {styleSelector === "css" && "*"}</label>
               <textarea
+                id="css-code"
                 value={codigoCSS}
                 onChange={(e) => setCodigoCSS(e.target.value)}
                 disabled={styleSelector === "tailwind"}
@@ -217,12 +232,12 @@ const AddElement = () => {
           <button
             type="button"
             disabled={loading}
-            style={{ margin: "0px 10px" }}
+            style={{ margin: "0px 10px",borderRadius: "var(--radius-200)" }}
             onClick={resetForm}
           >
             Delete All
           </button>
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={loading} style={{borderRadius: "var(--radius-200)"}}>
             {loading ? "Guardando..." : "Add Element"}
           </button>
         </form>

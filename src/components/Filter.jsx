@@ -1,17 +1,12 @@
 import React from "react";
 import "./css/filter.css";
+import {
+  animationOptions,
+  elementCategories,
+  styleOptions,
+} from "@/common/elementOptions";
 
 export const Filter = ({ activeFilters, onToggle, onRemove, onClearAll }) => {
-  const animOptions = ["Yes", "No"];
-  const styleOptions = ["CSS", "Tailwind"];
-  const categoriaOptions = [
-    "Buttons",
-    "Cards",
-    "Loaders",
-    "Dropdown",
-    "Other"
-  ];
-
   const isActive = (section, val) =>
     activeFilters && activeFilters[section] && activeFilters[section].has(val);
 
@@ -22,14 +17,14 @@ export const Filter = ({ activeFilters, onToggle, onRemove, onClearAll }) => {
         <section className="filter_section">
           <h4>Animation</h4>
           <div className="options">
-            {animOptions.map((o) => (
+            {animationOptions.map((option) => (
               <button
-                key={o}
-                className={isActive("animacion", o) ? "chip active" : "chip"}
-                onClick={() => onToggle("animacion", o)}
+                key={option.value}
+                className={isActive("animacion", option.value) ? "chip active" : "chip"}
+                onClick={() => onToggle("animacion", option.value)}
                 type="button"
               >
-                {o}
+                {option.label}
               </button>
             ))}
           </div>
@@ -38,14 +33,14 @@ export const Filter = ({ activeFilters, onToggle, onRemove, onClearAll }) => {
         <section className="filter_section">
           <h4>Styles</h4>
           <div className="options">
-            {styleOptions.map((o) => (
+            {styleOptions.map((option) => (
               <button
-                key={o}
-                className={isActive("style", o) ? "chip active" : "chip"}
-                onClick={() => onToggle("style", o)}
+                key={option.value}
+                className={isActive("style", option.value) ? "chip active" : "chip"}
+                onClick={() => onToggle("style", option.value)}
                 type="button"
               >
-                {o}
+                {option.label}
               </button>
             ))}
           </div>
@@ -54,14 +49,14 @@ export const Filter = ({ activeFilters, onToggle, onRemove, onClearAll }) => {
         <section className="filter_section">
           <h4>Categories</h4>
           <div className="options categories_options">
-            {categoriaOptions.map((o) => (
+            {elementCategories.map((option) => (
               <button
-                key={o}
-                className={isActive("categoria", o) ? "chip active" : "chip"}
-                onClick={() => onToggle("categoria", o)}
+                key={option.value}
+                className={isActive("categoria", option.value) ? "chip active" : "chip"}
+                onClick={() => onToggle("categoria", option.value)}
                 type="button"
               >
-                {o}
+                {option.label}
               </button>
             ))}
           </div>

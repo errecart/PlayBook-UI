@@ -28,7 +28,12 @@ const CategoryCard = () => {
       {/* Botones */}
       <section
         className={`flip-card ${flip.botones ? "flipped" : ""}`}
+        role="button"
+        tabIndex={0}
         onClick={() => !flip.botones && toggle("botones")}
+        onKeyDown={(event) => {
+          if ((event.key === "Enter" || event.key === " ") && !flip.botones) toggle("botones");
+        }}
       >
         <div className="front">
           <svg
@@ -49,7 +54,7 @@ const CategoryCard = () => {
           </svg>
           <h3>Category</h3>
         </div>
-        <div className="back" onClick={() => goToCategory("Botones")}>
+        <div className="back" onClick={() => goToCategory("Buttons")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -72,7 +77,12 @@ const CategoryCard = () => {
       {/* Cards */}
       <section
         className={`flip-card ${flip.cards ? "flipped" : ""}`}
+        role="button"
+        tabIndex={0}
         onClick={() => !flip.cards && toggle("cards")}
+        onKeyDown={(event) => {
+          if ((event.key === "Enter" || event.key === " ") && !flip.cards) toggle("cards");
+        }}
       >
         <div className="front">
           <svg
@@ -118,7 +128,12 @@ const CategoryCard = () => {
       {/* Dropdowns */}
       <section
         className={`flip-card ${flip.dropdowns ? "flipped" : ""}`}
+        role="button"
+        tabIndex={0}
         onClick={() => !flip.dropdowns && toggle("dropdowns")}
+        onKeyDown={(event) => {
+          if ((event.key === "Enter" || event.key === " ") && !flip.dropdowns) toggle("dropdowns");
+        }}
       >
         <div className="front">
           <svg
@@ -162,7 +177,12 @@ const CategoryCard = () => {
       {/* Loaders */}
       <section
         className={`flip-card ${flip.loader ? "flipped" : ""}`}
+        role="button"
+        tabIndex={0}
         onClick={() => !flip.loader && toggle("loader")}
+        onKeyDown={(event) => {
+          if ((event.key === "Enter" || event.key === " ") && !flip.loader) toggle("loader");
+        }}
       >
         <div className="front">
           <svg
@@ -183,7 +203,7 @@ const CategoryCard = () => {
           </svg>
           <h3>Category</h3>
         </div>
-        <div className="back" onClick={() => goToCategory("Loader")}>
+        <div className="back" onClick={() => goToCategory("Loaders")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -206,7 +226,12 @@ const CategoryCard = () => {
       {/* Others */}
       <section
         className={`flip-card ${flip.others ? "flipped" : ""}`}
+        role="button"
+        tabIndex={0}
         onClick={() => !flip.others && toggle("others")}
+        onKeyDown={(event) => {
+          if ((event.key === "Enter" || event.key === " ") && !flip.others) toggle("others");
+        }}
       >
         <div className="front">
           <svg
@@ -227,7 +252,7 @@ const CategoryCard = () => {
           </svg>
           <h3>Category</h3>
         </div>
-        <div className="back" onClick={() => goToCategory("Other")}>
+        <div className="back" onClick={() => goToCategory("Others")}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
