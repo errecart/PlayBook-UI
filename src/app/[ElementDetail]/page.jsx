@@ -93,14 +93,14 @@ useEffect(() => {
     </html>`;
 
   if (loading) return <Loader />;
-  if (!element) return <div role="alert">No se encontró el elemento</div>;
+  if (!element) return <div role="alert">Element not found</div>;
   return (
     <>
       <NavBar />
       <div className="element_container container">
         <section className="element_left">
           <div className="element_header">
-            <h2>{element.nombre} - </h2>
+            <h2>{element.nombre}</h2>
             <ul>
               <li>{element.style}</li>
               <li>{element.animacion ? "Animation" : "No-Animation"}</li>
@@ -178,27 +178,30 @@ useEffect(() => {
             >
               HTML
             </button>
-            <button
-              type="button"
-              className={view === "css" ? "active" : ""}
-              onClick={() => setView("css")}
+            {element.codigoCSS ? (
+              <button
+                type="button"
+                className={view === "css" ? "active" : ""}
+                onClick={() => setView("css")}
                 aria-selected={view === "css"}
                 disabled={!element.codigoCSS}
-            >
-              {element.codigoCSS ? "CSS" : ""}
+              >
               CSS
-            </button>
+              </button>
+            ) : null} 
           </section>
           {view === "html" ? (
             <div
               onChange={(e) => setHtmlCode(e.target.value)}
               className="codigo"
             >
-              <pre>
-                <code ref={htmlRef} className="language-html">
-                  {htmlCode}
-                </code>
-              </pre>
+              <div className="codigo_content">
+                <pre>
+                  <code ref={htmlRef} className="language-html">
+                    {htmlCode}
+                  </code>
+                </pre>
+              </div>
               <button type="button" className="copy_code" aria-label="Copy HTML code" onClick={() => navigator.clipboard.writeText(htmlCode)}>
                 <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -224,11 +227,13 @@ useEffect(() => {
               onChange={(e) => setCssCode(e.target.value)}
               className="codigo"
             >
-              <pre>
-                <code ref={cssRef} className="language-css">
-                  {cssCode}
-                </code>
-              </pre>
+              <div className="codigo_content">
+                <pre>
+                  <code ref={cssRef} className="language-css">
+                    {cssCode}
+                  </code>
+                </pre>
+              </div>
               <button type="button" className="copy_code" aria-label="Copy CSS code" onClick={() => navigator.clipboard.writeText(cssCode)}>
                 <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -1,20 +1,16 @@
 .playBook_page {
   display: flex;
   align-items: flex-start;
-}
-
-.filter {
-  flex: 1 1 20%;
-  max-width: 50%;
-  min-width: 0;
+  gap: 1rem;
+  padding: 1.5rem;
+  min-height: 70vh;
 }
 
 .playBook_container {
-  flex: 1 1 80%;
-  max-width: 100%;
+  flex: 1 1 0;
   min-width: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1rem;
   align-items: start;
   width: 100%;
@@ -27,16 +23,20 @@
   align-items: center;
 }
 
+@media (max-width: 768px) {
+  .playBook_page {
+    flex-direction: column;
+    padding: 1rem;
+  }
 
+  .playBook_container {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
 
-.no_items{
-  color: var(--accent-100);
-  background-color: var(--bg-300);
-  border: 2px solid var(--accent-100);
-  padding-block: var(--pad-lg);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (max-width: 480px) {
+  .playBook_container {
+    grid-template-columns: 1fr;
+  }
 }
 

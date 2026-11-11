@@ -140,7 +140,7 @@ export default function PlayBookClient() {
     <>
       <NavBar />
 
-      <div className="playBook_page container">
+      <div className="playBook_page">
         <Filter
           activeFilters={activeFilters}
           onToggle={toggleFilter}
@@ -149,18 +149,18 @@ export default function PlayBookClient() {
         />
 
         {loading ? (
-          <Loader />
+          <div className="playBook_container"><Loader /></div>
         ) : error ? (
-          <p role="alert" className="no_items">Unable to load elements. Please try again.</p>
+          <div className="playBook_container"><p role="alert" className="no_items">Unable to load elements. Please try again.</p></div>
         ) : filteredItems.length === 0 ? (
-          <p className="no_items">No elements available.</p>
+          <div className="playBook_container"><p className="no_items">No elements found for the selected filters.</p></div>
         ) : (
-            <article className="playBook_container">
-                <Cards
-                  items={filteredItems}
-                  onCardClick={(id) => router.push(`/${encodeURIComponent(id)}`)}
-                />
-            </article>
+          <article className="playBook_container">
+            <Cards
+              items={filteredItems}
+              onCardClick={(id) => router.push(`/${encodeURIComponent(id)}`)}
+            />
+          </article>
         )}
       </div>
     </>

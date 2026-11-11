@@ -14,7 +14,7 @@ button{
 button:hover{
     background-color: var(--primary-200);
     border: 2px solid var(--text-100);
-    animation: buttonBounce 1s infinite;
+    animation: buttonBounce 1s ease-in-out;
 }
 
 @keyframes buttonBounce{
@@ -25,7 +25,7 @@ button:hover{
         transform: translateY(10%);
     }
     100%{
-        transform: translateY(5%);
+        transform: translateY(0%);
     }
 }
 
